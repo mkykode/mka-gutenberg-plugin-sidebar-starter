@@ -8,7 +8,7 @@ registerBlockType('mk/member', {
   icon: 'businessman',
   category: 'common',
   edit: props => {
-    return <>Hi</>
+    return <>form goes here</>
   },
   save: props => {
     return <>Hi</>

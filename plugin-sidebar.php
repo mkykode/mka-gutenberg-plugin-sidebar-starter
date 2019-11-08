@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: gutenberg-sidebar
+ * Plugin Name: MK Gutenberg blocks
  * Plugin URI: https://monkeykodeagency.com/
  * Description: Sidebar for the block editor.
  * Author: Jull weber
@@ -14,30 +14,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-// enqueue assets for blovk editor.
+// enqueue assets for bloCk editor.
+
 
 add_action(
-	'enqueue_block_editor_assets',
-	function() {
+	'init',
+	function () {
 		$assets = include plugin_dir_path( __FILE__ ) . 'build/index.asset.php';
 		wp_enqueue_script(
-			'mk-gutenberg-sidebar',
+			'mk-blocks',
 			plugins_url( 'build/index.js', __FILE__ ),
 			$assets['dependencies'],
 			$assets['version'],
 			false
 		);
 
-	}
-);
-
-
-
-
-
-add_action(
-	'init',
-	function () {
+		register_block_type(
+			'mk-gutenberg',
+			array(
+				'editor_script' => 'mk-blocks',
+			)
+		);
 
 	}
 );
