@@ -4,7 +4,7 @@ import { compose } from '@wordpress/compose'
 import { __ } from '@wordpress/i18n'
 
 const PluginMetaFields = ({ text_metafield, onMetaFieldChange }) => {
-  console.log(text_metafield)
+  console.log(`Meta field ${text_metafield}`)
 
   return (
     <>
